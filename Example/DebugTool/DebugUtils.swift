@@ -1,20 +1,19 @@
 //
-//  ViewController.swift
-//  DebugTool
+//  DebugUtils.swift
+//  DebugTool_Example
 //
-//  Created by daniellee on 02/08/2022.
-//  Copyright (c) 2022 daniellee. All rights reserved.
+//  Created by KKday on 2022/2/8.
+//  Copyright © 2022 CocoaPods. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import DebugTool
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = .white
+class DebugUtils {
+    static func setup() {
+        configDebugBall()
+    }
+    static func configDebugBall() {
         DebugNodeConfigs.debugNodes = [
             BaseDebugNode(name: "網路", subNodes: [
                 ActionDebugNode(name: "測試1", action: {
@@ -39,11 +38,4 @@ class ViewController: UIViewController {
             DebugBall().toggle(on: mainWindow)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
-

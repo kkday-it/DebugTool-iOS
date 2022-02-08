@@ -1,0 +1,6 @@
+framework module DebugTool {
+  umbrella header "DebugTool-umbrella.h"
+
+  export *
+  module * { export * }
+}
