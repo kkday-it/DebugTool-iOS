@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        configKeyWindow()
+        DebugUtils.setup()
+        
         return true
     }
 
@@ -40,7 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    private func configKeyWindow() {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let viewController = ViewController()
+        let navigation = UINavigationController(rootViewController: viewController)
+        self.window?.rootViewController = navigation
+        
+        window?.makeKeyAndVisible()
+    }
+    
 }
 
