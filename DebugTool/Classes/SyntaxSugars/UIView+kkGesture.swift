@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    var kkGesture : KKGesture {
+    public var kkGesture : KKGesture {
         get { KKGesture(self) }
     }
 }
@@ -45,10 +45,10 @@ public class CleanGestureHandler : NSObject, UIGestureRecognizerDelegate {
     }
 }
 
-class KKGesture : DSLBase<UIView> {
+public class KKGesture : DSLBase<UIView> {
     //MARK: Click
     private static let cleanGestureHandler = CleanGestureHandler()
-    func click(_ action : @escaping ()->Void) {
+    public func click(_ action : @escaping ()->Void) {
         guard let targetView = _solver else {return}
         KKGesture.cleanGestureHandler.registReserveView(view: targetView)//mark
         let gesture = WrappedTapGesture {
@@ -59,7 +59,7 @@ class KKGesture : DSLBase<UIView> {
     }
     
     //MARK: Drag
-    func addDragGesture() {
+    public func addDragGesture() {
         let panGes = UIPanGestureRecognizer(target: KKGesture.self, action: #selector(KKGesture._drag_handlePan(_:)))
         _solver?.addGestureRecognizer(panGes)
     }

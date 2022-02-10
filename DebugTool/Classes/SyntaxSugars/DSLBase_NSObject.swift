@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DSLBase<T:NSObject> {
+public class DSLBase<T:NSObject> {
     weak public var _solver : T?
     init(_ solver : T) {
         _solver = solver
